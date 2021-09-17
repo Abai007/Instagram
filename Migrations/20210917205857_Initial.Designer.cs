@@ -10,7 +10,7 @@ using homework_59.Models;
 namespace homework_59.Migrations
 {
     [DbContext(typeof(InstaContext))]
-    [Migration("20210917094554_Initial")]
+    [Migration("20210917205857_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -172,6 +172,9 @@ namespace homework_59.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("CreatorName")
+                        .HasColumnType("text");
 
                     b.Property<int>("ImageModelId")
                         .HasColumnType("integer");

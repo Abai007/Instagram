@@ -127,6 +127,7 @@ namespace homework_59.Controllers
                 imageModel.Comment.UserObjId = user.Id;
                 imageModel.Comment.UserObj = user;
                 imageModel.Comment.ImageModelId = image.Id;
+                imageModel.Comment.CreatorName = CurrentUser().Result.Login;
                 if (imageModel.Comment.TextBody != null)
                     _db.Comments.Add(imageModel.Comment);
                 _db.SaveChanges();

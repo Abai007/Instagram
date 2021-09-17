@@ -171,6 +171,9 @@ namespace homework_59.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<string>("CreatorName")
+                        .HasColumnType("text");
+
                     b.Property<int>("ImageModelId")
                         .HasColumnType("integer");
 

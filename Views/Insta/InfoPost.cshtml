@@ -33,9 +33,7 @@
                 <h6>Комментарии: @Model.ImageModel.Comments.Count</h6>
                 @foreach (var item in @Model.ImageModel.Comments)
                 {
-                    @if (item.UserObj != null)
-                    {
-                    <p>@item.UserObj.Login: @item.TextBody</p><br/>}
+                    <p>@item.CreatorName: @item.TextBody</p><br/>
                 }
 
             }

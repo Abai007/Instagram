@@ -9,6 +9,7 @@ namespace homework_59.Models
     {
         public int Id { get; set; }
         public string TextBody { get; set; }
+        public string CreatorName { get; set; }
         public int ImageModelId { get; set; }
         public ImageModel ImageModel { get; set; }
         public string UserObjId { get; set; }

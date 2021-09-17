@@ -240,6 +240,7 @@ namespace homework_59.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TextBody = table.Column<string>(type: "text", nullable: true),
+                    CreatorName = table.Column<string>(type: "text", nullable: true),
                     ImageModelId = table.Column<int>(type: "integer", nullable: false),
                     UserObjId = table.Column<string>(type: "text", nullable: true)
                 },
