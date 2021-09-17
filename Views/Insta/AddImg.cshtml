@@ -1,0 +1,28 @@
+﻿@model ImageModel
+<form method="post" asp-controller="Insta" asp-action="AddImg" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id"/>
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        Выберите фото
+        <input type="file" name="ImgFile" required />
+    </div>
+    <div>
+
+        <label asp-for="Description"></label><br />
+
+        <input asp-for="Description" />
+
+        <span asp-validation-for="Description"></span>
+
+    </div>
+    <div>
+
+        <input type="submit" value="Публикавать" />
+
+    </div>
+
+</form>
+@section Scripts
+        {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

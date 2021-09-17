@@ -1,0 +1,27 @@
+﻿@model List<UserObj>
+
+@{
+
+    ViewBag.Title = "Каталог пользователей";
+
+}
+
+<h2>Каталог пользователей</h2>
+<table class="table table-striped">
+    @foreach (var item in Model)
+
+    {
+
+        <tr>
+
+            <td>
+                <a asp-action="Profile" asp-controller="Insta" asp-route-Id="@item.Id">
+                    @Html.DisplayFor(modelItem => item.Login)
+                </a>
+            </td>
+
+        </tr>
+
+    }
+
+</table>

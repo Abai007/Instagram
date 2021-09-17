@@ -1,0 +1,93 @@
+﻿@model homework_59.ViewModel.RegisterViewModel
+
+<h2>Регистрация нового пользователя</h2>
+
+<form method="post" asp-controller="Account" asp-action="Register" enctype="multipart/form-data">
+    <input type="hidden" asp-for="UserObj.Id" />
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+
+        <label asp-for="Email"></label><br />
+
+        <input asp-for="Email" />
+
+        <span asp-validation-for="Email"></span>
+
+    </div>
+    <div>
+
+        <label asp-for="Login"></label><br />
+
+        <input asp-for="Login" />
+
+        <span asp-validation-for="Login"></span>
+
+    </div>
+    <div>
+
+        <label asp-for="Name"></label><br />
+
+        <input asp-for="Name" />
+
+        <span asp-validation-for="Name"></span>
+
+    </div>
+    <div>
+
+        <label asp-for="InfoUser"></label><br />
+
+        <input asp-for="InfoUser" />
+
+        <span asp-validation-for="InfoUser"></span>
+
+    </div>
+    <div>
+
+        <label asp-for="PhoneNumber"></label><br />
+
+        <input asp-for="PhoneNumber" />
+
+        <span asp-validation-for="PhoneNumber"></span>
+
+    </div>
+    <div>
+        Выберите фото
+        <input type="file" name="ImgFile" required />
+
+    </div>
+    <div>
+        Укажите пол
+        @Html.DropDownList("Gender", new SelectList(new string[] { "men", "women" }))
+    </div>
+    <div>
+
+        <label asp-for="Password"></label><br />
+
+        <input asp-for="Password" />
+
+        <span asp-validation-for="Password"></span>
+
+    </div>
+
+    <div>
+
+        <label asp-for="PasswordConfirm"></label><br />
+
+        <input asp-for="PasswordConfirm" />
+
+        <span asp-validation-for="PasswordConfirm"></span>
+
+    </div>
+
+    <div>
+
+        <input type="submit" value="Регистрация" />
+
+    </div>
+
+</form>
+@section Scripts
+        {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

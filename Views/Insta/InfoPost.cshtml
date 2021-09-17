@@ -1,0 +1,48 @@
+﻿@model homework_59.ViewModel.CommentLikeViewModel
+
+    <div class="card" style="width: 18rem;">
+        <img src="@Model.ImageModel.Path" class="card-img-top" alt="Photo">
+        <div class="card-body">
+            <p>@Model.ImageModel.Description</p>
+            <form method="post" asp-controller="Insta" asp-action="InfoPost">
+                <div>
+                    <input asp-for="@Model.Like.ImageModelId" type="hidden" value="@Model.ImageModel.Id">
+                    <input type="submit" value="&#10084" />
+                </div>
+            </form>
+            <form method="post" asp-controller="Insta" asp-action="InfoPost">
+                <div>
+                    <label asp-for="@Model.Comment.TextBody"></label><br />
+                    <input asp-for="@Model.Comment.TextBody" />
+                    <input asp-for="@Model.Comment.ImageModelId" type="hidden" value="@Model.ImageModel.Id">
+                    <input type="submit" value="Опубликовать" />
+                </div>
+            </form>
+        </div>
+        <div>
+            @if (Model.ImageModel.Likes.Count != null)
+            {
+                <h6>Нравится: @Model.ImageModel.Likes.Count</h6>
+            }
+            else
+            {
+                <h6>Нравится: 0</h6>
+            }
+            @if (Model.ImageModel.Comments.Count != null)
+            {
+                <h6>Комментарии: @Model.ImageModel.Comments.Count</h6>
+                @foreach (var item in @Model.ImageModel.Comments)
+                {
+                    @if (item.UserObj != null)
+                    {
+                    <p>@item.UserObj.Login: @item.TextBody</p><br/>}
+                }
+
+            }
+            else
+            {
+                    <h6>Комментарии: 0</h6>
+            }
+
+        </div>
+    </div>

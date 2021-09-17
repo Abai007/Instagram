@@ -1,0 +1,17 @@
+﻿@model UserObj
+
+<img width="300" height="300" class="rounded-circle" src="@Model.Avatar" alt="Avatar" />
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @if (Model.ImageModels != null)
+    {
+    @foreach (var photo in Model.ImageModels)
+    {
+        <div class="col">
+            <div class="h-75">
+                <a asp-action="InfoPost" asp-controller="Insta" asp-route-Id="@photo.Id" asp-><img src="@photo.Path" class="card-img-top" height="400" alt="photo"></a>
+            </div>
+        </div>
+    }
+    }
+</div>
