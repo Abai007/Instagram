@@ -14,8 +14,10 @@ namespace homework_59.Models
         public string Name { get; set; }
         public string InfoUser { get; set; }
         public string Gender { get; set; }
+        public int FollowerCount { get; set; }
+        public int FollowCount { get; set; }
         public List<ImageModel> ImageModels { get; set; }
-        public List<UserObj> Follower { get; set; }
-        public List<UserObj> Follow { get; set; }
+        public List<UserObj> Followers { get; set; }
+        public List<UserObj> Follows { get; set; }
     }
 }

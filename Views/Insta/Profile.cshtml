@@ -1,6 +1,26 @@
 ﻿@model UserObj
 
-<img width="300" height="300" class="rounded-circle" src="@Model.Avatar" alt="Avatar" />
+<div>
+    <img width="300" height="300" class="rounded-circle" src="@Model.Avatar" alt="Avatar" />
+    <h6>
+        Публикации: @if (Model.ImageModels != null)
+        {@Model.ImageModels.Count;
+    }
+    </h6>
+    <h6>Подписчики: @Model.FollowerCount</h6>
+    <h6>Подписки: @Model.FollowCount</h6>
+    <h6>Логин: @Model.Login</h6>
+    @if (@Model.Name != null)
+    {
+        <h6>Имя: @Model.Name</h6>
+
+    }
+    @if (@Model.InfoUser != null)
+    {
+        <h6>Информация о пользователе: @Model.InfoUser</h6>
+    }
+    <p><a asp-action="Following" asp-controller="Insta" asp-route-Id="@Model.Id" class="btn-danger">подписаться</a></p>
+</div>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     @if (Model.ImageModels != null)

@@ -88,7 +88,7 @@ namespace homework_59.Controllers
                 await _userManager.AddToRoleAsync(user, "user");
                 await _signInManager.SignInAsync(user, false);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Insta");
 
             }
 
@@ -149,7 +149,7 @@ namespace homework_59.Controllers
                     }
 
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Insta");
 
                 }
 

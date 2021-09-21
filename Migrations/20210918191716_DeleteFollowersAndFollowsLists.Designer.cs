@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using homework_59.Models;
@@ -9,9 +10,10 @@ using homework_59.Models;
 namespace homework_59.Migrations
 {
     [DbContext(typeof(InstaContext))]
-    partial class InstaContextModelSnapshot : ModelSnapshot
+    [Migration("20210918191716_DeleteFollowersAndFollowsLists")]
+    partial class DeleteFollowersAndFollowsLists
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,21 +151,6 @@ namespace homework_59.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("UserObjUserObj", b =>
-                {
-                    b.Property<string>("FollowersId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("FollowsId")
-                        .HasColumnType("text");
-
-                    b.HasKey("FollowersId", "FollowsId");
-
-                    b.HasIndex("FollowsId");
-
-                    b.ToTable("UserObjUserObj");
-                });
-
             modelBuilder.Entity("homework_59.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
@@ -198,9 +185,6 @@ namespace homework_59.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -410,21 +394,6 @@ namespace homework_59.Migrations
                     b.HasOne("homework_59.Models.UserObj", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("UserObjUserObj", b =>
-                {
-                    b.HasOne("homework_59.Models.UserObj", null)
-                        .WithMany()
-                        .HasForeignKey("FollowersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("homework_59.Models.UserObj", null)
-                        .WithMany()
-                        .HasForeignKey("FollowsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

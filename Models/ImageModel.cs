@@ -14,6 +14,7 @@ namespace homework_59.Models
 
         [Required]
         public string Description { get; set; }
+        public DateTime CreateDate { get; set; }
         public string UserObjId { get; set; }
         public UserObj UserObj { get; set; }
         public List<Comment> Comments { get; set; }

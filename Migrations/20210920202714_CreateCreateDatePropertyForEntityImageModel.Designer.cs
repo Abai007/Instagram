@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using homework_59.Models;
@@ -9,9 +10,10 @@ using homework_59.Models;
 namespace homework_59.Migrations
 {
     [DbContext(typeof(InstaContext))]
-    partial class InstaContextModelSnapshot : ModelSnapshot
+    [Migration("20210920202714_CreateCreateDatePropertyForEntityImageModel")]
+    partial class CreateCreateDatePropertyForEntityImageModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

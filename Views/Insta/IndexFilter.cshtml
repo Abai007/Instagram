@@ -7,21 +7,28 @@
 }
 
 <h2>Каталог пользователей</h2>
-<table class="table table-striped">
-    @foreach (var item in Model)
+@if (Model != null)
+{
+    <table class="table table-striped">
+        @foreach (var item in Model)
 
-    {
+        {
 
-        <tr>
+            <tr>
 
-            <td>
-                <a asp-action="Profile" asp-controller="Insta" asp-route-Id="@item.Id">
-                    @Html.DisplayFor(modelItem => item.Login)
-                </a>
-            </td>
+                <td>
+                    <a asp-action="Profile" asp-controller="Insta" asp-route-Id="@item.Id">
+                        <img src="@item.Avatar" alt="Alternate Text" width="50" height="50" class="rounded-circle mr-5"/> @Html.DisplayFor(modelItem => item.Login)
+                    </a>
+                </td>
 
-        </tr>
+            </tr>
 
-    }
+        }
 
-</table>
+    </table>
+}else
+            {
+                <h5>Пользователи не найдены :(</h5>
+            }
+

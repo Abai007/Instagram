@@ -1,0 +1,26 @@
+﻿@model List<ImageModel>
+@foreach (var img in Model)
+{
+    <a asp-action="InfoPost" asp-controller="Insta" asp-route-Id="@img.Id">
+        <div class="card" style="width: 18rem;">
+            <img src="@img.Path" class="card-img-top" alt="Photo">
+            <div class="card-body">
+                <p>@img.Description</p>
+            </div>
+            <div>
+                @if (img.Likes.Count != null)
+                {
+<h6>Нравится: @img.Likes.Count</h6> }
+else
+{
+<h6>Нравится: 0</h6>}
+                @if (img.Comments.Count != null)
+                {
+<h6>Комментарии: @img.Comments.Count</h6>}
+else
+{<h6>Комментарии: 0</h6>}
+            </div>
+        </div>
+    </a>
+}
+
